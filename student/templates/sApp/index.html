@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Students List</title>
+      {% load static %}
+      <link rel="stylesheet" type="text/css" href="{% static 'css/background.css' %}">
+  </head>
+  <body>
+    <h1> Students:</h1>
+    <table border ='2'>
+        <thead>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Roll No</th>
+            <th>Score</th>
+        </thead>
+        {% for stu in students %}
+        <tr>
+            <td>{{stu.id}}</td>
+            <td>{{stu.firstName}}</td>
+            <td>{{stu.lastName}}</td>
+            <td>{{stu.roll}}</td>
+            <td>{{stu.score}}</td>
+            <td><a href="/delete/{{stu.id}}">Delete</a></td>
+            <td><a href="/update/{{stu.id}}">update</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+  <br/>
+  <a href="/create">Add Student</a>
+  </body>
+</html>
